@@ -2,11 +2,16 @@
 # DAWSON'S ZSHRC
 # --------------
 
+export TERM=xterm-256color
+
 export VIMRUNTIME="/usr/share/vim/vim80"
+alias v="vim"
+
 alias activate="source venv/bin/activate"
 
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
+export PATH="/usr/local/opt/ruby/bin:${PATH}"
+
+export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 
 PYTHONPATH="${PYTHONPATH}:/Library/Frameworks/Python.framework/Versions/3.7/bin"
 export PYTHONPATH
