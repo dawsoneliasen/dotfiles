@@ -3,7 +3,7 @@
     set number
     set relativenumber
     set visualbell
-    set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+    set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
     set autoindent
     " set selection=exclusive
     set nowrap
@@ -14,7 +14,6 @@
     set conceallevel=2
 
 " TODO: figure about a better folding scheme
-" set nofoldenable
 " set foldmethod=indent
 
 " set colorscheme
@@ -25,16 +24,13 @@
 " custom key bindings
 
     " TODO: unused bindings
-    " map <space> <something>
     " map <space><space> <something>
-    " map <enter> <something>
     " map $ <something>
     " map ^ <something>
 
     " TODO: actions that need better bindings
     " map <something> <C-w>
     " imap <something> <esc>
-    " map <something> <add spaces until aligned with char on above line>
 
     " general
     let mapleader = " "
@@ -57,16 +53,28 @@
     nnoremap k gk
     
     " automatically close parens, brackets, quotes
-    " inoremap ' ''<esc>i
-    " inoremap " ""<esc>i
-    " inoremap ( ()<esc>i
-    " inoremap [ []<esc>i
-    " inoremap { {}<esc>i
-    inoremap () ()<left>
-    inoremap [] []<left>
-    inoremap {} {}<left>
-    inoremap '' ''<left>
-    inoremap "" ""<left>
+    " inoremap {      {}<Left>
+    " inoremap {{     {
+    " inoremap {}     {}
+    " inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+
+    " inoremap (      ()<Left>
+    " inoremap ((     (
+    " inoremap ()     ()
+    " inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+
+    " inoremap [      []<Left>
+    " inoremap []     ]
+    " inoremap []     []
+    " inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+
+    " inoremap '      ''<Left>
+    " inoremap ''     ''
+    " inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+
+    " inoremap "      ""<Left>
+    " inoremap ""     ""
+    " inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
 
     " latex
     nnoremap <leader>$ i<right>$$<left>
@@ -75,6 +83,12 @@
     inoremap \b \beta
     inoremap \e \epsilon
     inoremap \s \sigma
+     
+    " R
+    nnoremap <leader>R \rf
+    nnoremap <leader>Rq \rq
+    nnoremap <leader>Re \bb
+    nnoremap <leader>Rc o```{r}<cr><cr>```<up>
 
     inoremap \f \frac{}{}<esc>2<left>i
     inoremap \h \hat
@@ -95,7 +109,7 @@
     vnoremap <leader>' c''<esc>P
     vnoremap <leader>" c""<esc>P
 
-    " delete a pair of brackets/quotes
+    " delete a pair of brackets/parens
     nnoremap <leader>% %x``x
 
     " toggle wrapping
@@ -103,10 +117,18 @@
 
     " run python files
     nnoremap <leader>p <esc>:w<CR>:!clear; python3 %<CR>
+    
+    " open new comment line
+    nnoremap <leader>o o#<space>
+    nnoremap <leader>O O#<space>
 
     " move between python function definitions
     noremap <leader>/ /def<CR>zt^
     noremap <leader>? ?def<CR>zt^
+
+    " highlight column 80
+    set colorcolumn=80
+    " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 " configure lightline
     set laststatus=2
@@ -118,8 +140,16 @@
 " configure vim-markdown
     let g:vim_markdown_math = 1
 
+" configure Nvim-R
+    let R_assign = 0
+
+" load pathogen plugins
 execute pathogen#infect()
 
-" launch nerdtree on start
-    " autocmd vimenter * NERDTree
+" load plugins with vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'https://github.com/jalvesaq/Nvim-R.git'
+
+call plug#end()
 
