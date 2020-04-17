@@ -4,7 +4,7 @@
 
 export TERM=xterm-256color
 
-export VIMRUNTIME="/usr/share/vim/vim80"
+export VIMRUNTIME="/usr/local/share/vim/vim82"
 alias v="vim"
 
 alias activate="source venv/bin/activate"
