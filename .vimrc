@@ -1,155 +1,117 @@
-" options
-    syntax on
-    set number
-    set relativenumber
-    set visualbell
-    set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-    set autoindent
-    " set selection=exclusive
-    set nowrap
-    set timeoutlen=1000 ttimeoutlen=0
-    set ignorecase
-    set smartcase
-    set incsearch
-    set conceallevel=2
+" -----------------------------------------------------------------------------
+" OPTIONS
+" -----------------------------------------------------------------------------
 
-" TODO: figure about a better folding scheme
-" set foldmethod=indent
+syntax on
+set number
+set relativenumber
+set visualbell
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set autoindent
+set nowrap
+set timeoutlen=1000 ttimeoutlen=0
+set ignorecase
+set smartcase
+set incsearch
+" set selection=exclusive
+
+" return to last position when opening file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 
 " set colorscheme
-    set termguicolors
-    set background=dark
-    colorscheme redzshift
+" set termguicolors
+set background=dark
+colorscheme redzshift
 
-" custom key bindings
+" -----------------------------------------------------------------------------
+" KEYBINDINGS
+" -----------------------------------------------------------------------------
 
-    " TODO: unused bindings
-    " map <space><space> <something>
-    " map $ <something>
-    " map ^ <something>
+" TODO: unused bindings
+" map <space><space> <something>
+" map $ <something>
+" map ^ <something>
 
-    " TODO: actions that need better bindings
-    " map <something> <C-w>
-    " imap <something> <esc>
+" general
+let mapleader = " "
+nnoremap <CR> :
 
-    " general
-    let mapleader = " "
-    nnoremap <CR> :
+" navigation
+noremap <BS> ^
+noremap <tab> $
+nnoremap j gj
+nnoremap k gk
 
-    " dvorak compensation
-    "nnoremap t j
-    "nnoremap j t
+" create blank lines and stay in normal mode
+nnoremap zj o<esc>k
+nnoremap zk O<esc>j
 
-    "nnoremap n k
-    "nnoremap k n
+" move lines up and down
+nnoremap <leader>j ddp
+nnoremap <leader>k ddkP
 
-    "nnoremap s l
-    "nnoremap l s
+" delete a pair of brackets/parens
+nnoremap <leader>% %x``x
 
-    " navigation
-    noremap <BS> ^
-    noremap <tab> $
-    nnoremap j gj
-    nnoremap k gk
-    
-    " automatically close parens, brackets, quotes
-    " inoremap {      {}<Left>
-    " inoremap {{     {
-    " inoremap {}     {}
-    " inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+" toggle wrapping
+nnoremap <leader>w :set wrap<CR>:set linebreak<CR>
 
-    " inoremap (      ()<Left>
-    " inoremap ((     (
-    " inoremap ()     ()
-    " inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+" run python files
+nnoremap <leader>p <esc>:w<CR>:!clear; python3 %<CR>
 
-    " inoremap [      []<Left>
-    " inoremap []     ]
-    " inoremap []     []
-    " inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+" open new comment line
+nnoremap <leader>o o#<space>
+nnoremap <leader>O O#<space>
 
-    " inoremap '      ''<Left>
-    " inoremap ''     ''
-    " inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+" highlight column 80
+set colorcolumn=80
+" set column 80 color
+" highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
-    " inoremap "      ""<Left>
-    " inoremap ""     ""
-    " inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
-
-    " latex
-    nnoremap <leader>$ i<right>$$<left>
-    inoremap $$ $$<left>
-    inoremap \a \alpha
-    inoremap \b \beta
-    inoremap \e \epsilon
-    inoremap \s \sigma
-     
-    " R
-    nnoremap <leader>R \rf
-    nnoremap <leader>Rq \rq
-    nnoremap <leader>Re \bb
-    nnoremap <leader>Rc o```{r}<cr><cr>```<up>
-
-    inoremap \f \frac{}{}<esc>2<left>i
-    inoremap \h \hat
-    inoremap \m \begin{bmatrix}<space>\end{bmatrix}<esc>Bi
-    
-    " create blank lines and stay in normal mode
-    nnoremap zj o<esc>k
-    nnoremap zk O<esc>j
-    
-    " move lines up and down
-    nnoremap <leader>j ddp
-    nnoremap <leader>k ddkP
-
-    " surround selected text with brackets/quotes
-    vnoremap <leader>( c()<esc>P 
-    vnoremap <leader>[ c[]<esc>P
-    vnoremap <leader>{ c{}<esc>P
-    vnoremap <leader>' c''<esc>P
-    vnoremap <leader>" c""<esc>P
-
-    " delete a pair of brackets/parens
-    nnoremap <leader>% %x``x
-
-    " toggle wrapping
-    nnoremap <leader>w :set wrap<CR>:set linebreak<CR>
-
-    " run python files
-    nnoremap <leader>p <esc>:w<CR>:!clear; python3 %<CR>
-    
-    " open new comment line
-    nnoremap <leader>o o#<space>
-    nnoremap <leader>O O#<space>
-
-    " move between python function definitions
-    noremap <leader>/ /def<CR>zt^
-    noremap <leader>? ?def<CR>zt^
-
-    " highlight column 80
-    set colorcolumn=80
-    " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-
-" configure lightline
-    set laststatus=2
-    set noshowmode
-    let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ }
-
-" configure vim-markdown
-    let g:vim_markdown_math = 1
-
-" configure Nvim-R
-    let R_assign = 0
-
-" load pathogen plugins
-execute pathogen#infect()
+" -----------------------------------------------------------------------------
+" PLUGINS
+" -----------------------------------------------------------------------------
 
 " load plugins with vim-plug
 call plug#begin('~/.vim/plugged')
-
-Plug 'https://github.com/jalvesaq/Nvim-R.git'
-
+    Plug 'itchyny/lightline.vim'
+        let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ }
+    Plug 'vim-python/python-syntax'
+    Plug 'lervag/vimtex'
+        let g:tex_flavor='latex'
+        let g:vimtex_view_method='Preview'
+        let g:vimtex_quickfix_mode=0
+        let g:tex_conceal='abdmg'
+    Plug 'tpope/vim-surround'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'jalvesaq/Nvim-R'
+    Plug 'SirVer/ultisnips'
+        let g:UltiSnipsExpandTrigger='<tab>'
+        let g:UltiSnipsJumpForwardTrigger='<tab>'
+        let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+    Plug 'KeitaNakamura/tex-conceal.vim'
 call plug#end()
+
+
+" configure lightline
+set laststatus=2
+set noshowmode
+
+" configure vimtex
+set conceallevel=1
+hi Conceal ctermbg=none
+
+" configure ultisnips (see ~/.vim/UltiSnips/ for snippet files)
+
+" configure vim-markdown
+let g:vim_markdown_math = 1
+
+" configure Nvim-R
+let R_assign = 0
+
 
