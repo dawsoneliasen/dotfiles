@@ -1,32 +1,32 @@
-" redzhift vim colorscheme
+" redzshift vim colorscheme
 
 " initialization
 set background=dark
 hi clear
-
 if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "redzhift"
+let g:colors_name = "redzshift"
+" let s:t_Co = exists('&t_Co') && !empty(&t_Co) && &t_Co > 1 ? &t_Co : 2
 
 " color reference:
 " https://jonasjacek.github.io/colors/
 
 " general syntax groups
-hi NonText ctermfg=gray
-hi LineNr ctermfg=gray
-hi CursorLineNr ctermfg=blue
-hi Comment ctermfg=gray
-hi Todo ctermfg=yellow ctermbg=none
-hi Statement ctermfg=green
-hi String ctermfg=red
-hi Constant ctermfg=magenta
-hi Function ctermfg=magenta
-hi operator ctermfg=magenta
-hi MatchParen ctermfg=yellow ctermbg=none
-hi Visual ctermfg=white ctermbg=DarkGray
-hi Special ctermfg=magenta
+hi NonText      ctermfg=gray    guifg=gray
+hi LineNr       ctermfg=gray    guifg=gray
+hi CursorLineNr ctermfg=blue    guifg=blue
+hi Comment      ctermfg=gray    guifg=gray
+hi Todo         ctermfg=yellow  guifg=yellow  ctermbg=none
+hi Statement    ctermfg=green   guifg=green
+hi String       ctermfg=red     guifg=red
+hi Constant     ctermfg=magenta guifg=magenta
+hi Function     ctermfg=magenta guifg=magenta
+hi Operator     ctermfg=magenta guifg=magenta
+hi MatchParen   ctermfg=yellow  guifg=yellow  ctermbg=none
+hi Visual       ctermfg=white   guifg=white   ctermbg=DarkGray 
+hi Special      ctermfg=magenta guifg=magenta
 
 
 " python
