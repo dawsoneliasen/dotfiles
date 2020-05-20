@@ -4,7 +4,6 @@
 
 # oh-my-zsh settings
 export ZSH="/Users/dawson/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 # select ZSH theme
 ZSH_THEME="redzshift"
 # set zsh custom folder
@@ -21,6 +20,7 @@ plugins=(git)
 #     For a full list of active aliases, run `alias`.
 alias v="vim"
 alias activate="source venv/bin/activate"
+alias linecount="find src -name '*.py' | xargs wc -l"
 # set alias for dotfiles repo
 alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -33,4 +33,6 @@ export PYTHONPATH
 # vim settings
 export TERM=xterm-256color
 export VIMRUNTIME="/usr/local/share/vim/vim82"
+
+source $ZSH/oh-my-zsh.sh
 
