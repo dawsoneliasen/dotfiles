@@ -20,9 +20,11 @@ plugins=(git)
 #     For a full list of active aliases, run `alias`.
 alias v="vim"
 alias activate="source venv/bin/activate"
-alias linecount="find src -name '*.py' | xargs wc -l"
+alias linecount="find . -name '*.py' | xargs wc -l"
 # set alias for dotfiles repo
 alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# Nick O'Dell requirements script
+alias deduce-requirements ~/deduce_requirements.sh
 
 # path settings
 export PATH="/usr/local/opt/ruby/bin:${PATH}"
