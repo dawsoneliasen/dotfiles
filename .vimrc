@@ -73,6 +73,13 @@ set colorcolumn=80
 " set column 80 color
 " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " -----------------------------------------------------------------------------
 " PLUGINS
 " -----------------------------------------------------------------------------
@@ -110,8 +117,8 @@ call plug#begin('~/.vim/plugged')
         let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
         let g:UltiSnipsSnippetDirectories=['.vim/UltiSnips', 'UltiSnips']
     Plug 'dense-analysis/ale'
+        let g:ale_sign_column_always = 1
         let g:ale_linters={'*': ['autopep8', 'pycodestyle']}
-        highlight clear SignColumn
     Plug 'jpalardy/vim-slime'
         let g:slime_target='tmux'
         let g:slime_default_config={'socket_name': 'default', 'target_pane': '{last}'}
@@ -136,3 +143,12 @@ set noshowmode
 " configure vimtex
 set conceallevel=1
 hi Conceal ctermbg=none
+
+" filetype specific settings
+autocmd FileType Rmd setlocal nospell wrap linebreak colorcolumn=0 
+
+" ale highlight settings
+highlight clear SignColumn
+highlight ALEErrorSign ctermfg=red ctermbg=none
+highlight ALEWarningSign ctermfg=yellow ctermbg=none
+highlight ALEError ctermfg=red ctermbg=53

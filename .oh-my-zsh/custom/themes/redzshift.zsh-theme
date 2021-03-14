@@ -1,4 +1,4 @@
-PROMPT=' ${return_status} %{$fg[magenta]%}%m %{$fg_bold[magenta]%}$USER%{$reset_color%} %{$fg_bold[blue]%}$(get_pwd)%{$reset_color%} $(git_prompt_info)${prompt_suffix}'
+PROMPT='${return_status}%{$reset_color%} %{$fg_bold[yellow]%}%m %{$fg_bold[magenta]%}$USER%{$reset_color%} %{$fg_bold[blue]%}$(get_pwd)%{$reset_color%} $(git_prompt_info)${prompt_suffix}'
 
 local return_status="%(?:%{$fg_bold[green]%}z:%{$fg_bold[red]%}z)"
 

@@ -13,24 +13,34 @@ let g:colors_name = "redzshift"
 " color reference:
 " https://jonasjacek.github.io/colors/
 
+" special
+hi ColorColumn ctermbg=blue
+
 " general syntax groups
-hi NonText      ctermfg=gray    guifg=gray
-hi LineNr       ctermfg=gray    guifg=gray
-hi CursorLineNr ctermfg=blue    guifg=blue
-hi Comment      ctermfg=gray    guifg=gray
-hi Todo         ctermfg=yellow  guifg=yellow  ctermbg=none
-hi Statement    ctermfg=green   guifg=green
-hi String       ctermfg=red     guifg=red
-hi Constant     ctermfg=magenta guifg=magenta
-hi Function     ctermfg=magenta guifg=magenta
-hi Operator     ctermfg=magenta guifg=magenta
-hi MatchParen   ctermfg=yellow  guifg=yellow  ctermbg=none
-hi Visual       ctermfg=white   guifg=white   ctermbg=DarkGray 
-hi Special      ctermfg=magenta guifg=magenta
+hi NonText ctermfg=gray guifg=gray
+hi LineNr  ctermfg=gray guifg=gray
+hi CursorLineNr ctermfg=blue guifg=blue
+hi Comment ctermfg=DarkGray guifg=gray
+hi Todo ctermfg=yellow guifg=yellow ctermbg=none
+hi Statement ctermfg=green guifg=green
+hi String ctermfg=blue guifg=blue
+hi Constant ctermfg=red guifg=red
+hi Function ctermfg=magenta guifg=magenta
+hi Operator ctermfg=magenta guifg=magenta
+hi MatchParen ctermfg=yellow  guifg=yellow ctermbg=none
+hi Visual ctermfg=white guifg=white ctermbg=DarkGray 
+hi Special ctermfg=red guifg=red
+
+hi Pmenu ctermfg=242 ctermbg=0 guibg=DarkGrey
+hi PmenuSel ctermfg=0 ctermbg=13 guibg=Magenta
 
 
 " python
-" hi pythonImport ctermfg=blue
+hi pythonTripleQuotes ctermfg=gray
+hi pythonOperator ctermfg=cyan
+hi pythonImport ctermfg=green
+hi pythonNone ctermfg=211
+hi pythonBoolean ctermfg=211
 " hi pythonInclude ctermfg=blue
 " hi pythonStatement ctermfg=cyan
 " hi pythonConditional ctermfg=cyan
@@ -43,5 +53,12 @@ hi Special      ctermfg=magenta guifg=magenta
 " hi pythonFloat ctermfg=red
 " hi pythonDottedName ctermfg=white
 " hi pythonDecorator ctermfg=blue
-" hi pythonOperator ctermfg=magenta
 
+" yaml
+hi yamlBlockMappingKey ctermfg=white
+hi yamlKeyValueDelimiter ctermfg=white
+hi yamlPlainScalar ctermfg=red
+hi yamlFlowCollection ctermfg=magenta
+hi yamlFlowIndicator ctermfg=magenta
+hi yamlBlockCollectionItemStart ctermfg=blue
+hi yamlFlowMappingKey ctermfg=blue
