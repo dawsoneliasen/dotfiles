@@ -62,3 +62,10 @@ hi yamlFlowCollection ctermfg=magenta
 hi yamlFlowIndicator ctermfg=magenta
 hi yamlBlockCollectionItemStart ctermfg=blue
 hi yamlFlowMappingKey ctermfg=blue
+
+" tex
+hi texBeginEnd ctermfg=blue
+hi texInputFile ctermfg=white
+hi texInputFileOpt ctermfg=white
+hi texStatement ctermfg=blue
+hi Delimiter ctermfg=white
