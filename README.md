@@ -6,7 +6,7 @@ Thanks to Anand Iyer for his [tutorial](https://www.anand-iyer.com/blog/2018/a-s
 To set up a new machine with these dotfiles:
 
 ```
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/anandpiyer/.dotfiles.git tmpdotfiles
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/dawsoneliasen/dotfiles.git tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 ```
