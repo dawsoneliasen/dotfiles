@@ -1,0 +1,8 @@
+# set alias for dotfiles repo
+alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# convenience aliases
+alias v="vim"
+alias activate="source venv/bin/activate"
+alias linecount="find . -name '*.py' | xargs wc -l"
+# Nick O'Dell requirements script
+alias deduce-requirements="~/deduce_requirements.sh"
