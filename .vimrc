@@ -1,12 +1,19 @@
 " -----------------------------------------------------------------------------
+" EXIT IF ATTEMPTING TO EDIT DIRECTORY
+" -----------------------------------------------------------------------------
+for f in argv()
+  if isdirectory(f)
+    echomsg "vimrc: Refusing to edit directory " . f
+    quit
+  endif
+endfor
+
+" -----------------------------------------------------------------------------
 " OPTIONS
 " -----------------------------------------------------------------------------
-"
 set number  " add line numbers
 set relativenumber  " show line numbers relative to current line
 set visualbell  " don't make noise
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-set autoindent
 set nowrap  " don't wrap lines
 " set timeoutlen=1000 ttimeoutlen=0
 set noesckeys  " disable escape keys; prevents delay when pressing esc
@@ -16,6 +23,10 @@ set incsearch  " show search results as the query is typed
 set backspace=indent,eol,start  " allow backspacing lines
 " set selection=exclusive
 set indentkeys-=:  " remove colon from indent keys
+set formatoptions+=Bj
+set wildmode=longest,list,full
+set wildmenu
+" set wildignore=*.o,*~
 
 " return to last position when opening file
 if has("autocmd")
@@ -118,7 +129,7 @@ call plug#begin('~/.vim/plugged')
         let g:UltiSnipsSnippetDirectories=['.vim/UltiSnips', 'UltiSnips']
     Plug 'dense-analysis/ale'
         let g:ale_sign_column_always = 1
-        let g:ale_linters={'*': ['autopep8', 'pycodestyle']}
+        let g:ale_linters={'python': ['flake8']}
     Plug 'jpalardy/vim-slime'
         let g:slime_target='tmux'
         let g:slime_default_config={'socket_name': 'default', 'target_pane': '{last}'}
@@ -128,11 +139,12 @@ call plug#begin('~/.vim/plugged')
         " (depends on markdown text objects)
         " nmap <leader>g V <Plug>(textobj-markdown-Bchunk-i) <Plug>SlimeRegionSend
         nmap <leader>g ViF<leader><enter>
+    " Plug 'sheerun/vim-polyglot'
+    Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 
 " add filetype detection, syntax highlighting
 " (must come after enabling UltiSnips and other packages)
-filetype plugin indent on
 syntax on
 set runtimepath+=~/.vim/UltiSnips
 
@@ -152,3 +164,7 @@ highlight clear SignColumn
 highlight ALEErrorSign ctermfg=red ctermbg=none
 highlight ALEWarningSign ctermfg=yellow ctermbg=none
 highlight ALEError ctermfg=red ctermbg=53
+
+filetype plugin indent on
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4 autoindent
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4

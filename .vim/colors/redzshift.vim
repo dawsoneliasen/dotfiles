@@ -55,9 +55,9 @@ hi pythonBoolean ctermfg=211
 " hi pythonDecorator ctermfg=blue
 
 " yaml
-hi yamlBlockMappingKey ctermfg=white
-hi yamlKeyValueDelimiter ctermfg=white
-hi yamlPlainScalar ctermfg=red
+hi yamlBlockMappingKey ctermfg=cyan
+hi yamlKeyValueDelimiter ctermfg=cyan
+hi yamlPlainScalar ctermfg=white
 hi yamlFlowCollection ctermfg=magenta
 hi yamlFlowIndicator ctermfg=magenta
 hi yamlBlockCollectionItemStart ctermfg=blue

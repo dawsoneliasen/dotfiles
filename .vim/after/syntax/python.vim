@@ -5,7 +5,7 @@ syn region Comment start=/"""/ end=/"""/
 syn keyword pythonNone None
 syn keyword pythonBoolean True False
 syn keyword pythonBuiltinFunc print type len min max range super zip abs
-syn keyword pythonBuiltinType int float bool str list dict
+syn keyword pythonBuiltinType int float bool str list dict tuple
 
 " highlight `self`
 hi pythonSelf ctermfg=yellow ctermbg=none
