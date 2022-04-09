@@ -27,6 +27,7 @@ set formatoptions+=Bj
 set wildmode=longest,list,full
 set wildmenu
 " set wildignore=*.o,*~
+" set iskeyword-=_  " treat underscores as word separators
 
 " return to last position when opening file
 if has("autocmd")
