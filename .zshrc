@@ -9,10 +9,10 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # make sure pyenv is available
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 
 # make sure brew installation of python3.8 is first on the path;
 # so that the system installation of python3.8 is avoided.

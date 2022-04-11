@@ -5,6 +5,14 @@ Thanks to Anand Iyer for his [tutorial](https://www.anand-iyer.com/blog/2018/a-s
 
 To set up a new machine with these dotfiles:
 
+* Install oh-my-zsh
+* Install homebrew
+* Install Python3
+* Install vim (I prefer to use the brew installation of vim instead of the one that comes with MacOS)
+* Install vim-plug
+* Launch vim and type :PlugInstall
+* Run these commands:
+
 ```
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/dawsoneliasen/dotfiles.git tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
