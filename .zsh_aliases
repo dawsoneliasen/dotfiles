@@ -1,0 +1,7 @@
+# set alias for dotfiles repo
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# convenience aliases
+alias v="vim"
+alias activate="source venv/bin/activate"
+alias linecount="find . -name '*.py' | xargs wc -l"
+alias notify="osascript -e 'display notification \"Process complete\" with title \"Terminal\"'"
