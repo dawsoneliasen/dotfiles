@@ -81,7 +81,7 @@ nnoremap <leader>O O#<space>
 
 
 " highlight column 80
-set colorcolumn=80
+set colorcolumn=0
 " set column 80 color
 " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
