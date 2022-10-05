@@ -55,13 +55,19 @@ hi pythonBoolean ctermfg=211
 " hi pythonDecorator ctermfg=blue
 
 " yaml
+hi yamlBlockCollectionItemStart ctermfg=cyan
 hi yamlBlockMappingKey ctermfg=cyan
-hi yamlKeyValueDelimiter ctermfg=cyan
+hi yamlKeyValueDelimiter ctermfg=white
 hi yamlPlainScalar ctermfg=white
+hi yamlFlowString ctermfg=white
+hi yamlNull ctermfg=red
+hi yamlBool ctermfg=blue
+hi yamlInteger ctermfg=blue
+hi yamlFloat ctermfg=blue
+hi yamlFlowStringDelimiter ctermfg=white
 hi yamlFlowCollection ctermfg=magenta
 hi yamlFlowIndicator ctermfg=magenta
-hi yamlBlockCollectionItemStart ctermfg=blue
-hi yamlFlowMappingKey ctermfg=blue
+hi yamlFlowMappingKey ctermfg=white
 
 " tex
 hi texBeginEnd ctermfg=blue
