@@ -4,7 +4,7 @@
 for f in argv()
   if isdirectory(f)
     echomsg "vimrc: Refusing to edit directory " . f
-    quit
+    cq
   endif
 endfor
 
