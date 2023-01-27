@@ -1,3 +1,6 @@
+# default option aliases
+# alias grep="grep -n"
+alias R="R --no-save"
 # set alias for dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # convenience aliases
@@ -6,3 +9,14 @@ alias activate="source venv/bin/activate"
 alias linecount="find . -name '*.py' | xargs wc -l"
 alias linecountR="find . -name '*.R' | xargs wc -l"
 alias notify="osascript -e 'display notification \"Process complete\" with title \"Terminal\"'"
+alias linecount="find . -name '*.py' | xargs wc -l"
+alias linecountR="find . -name '*.R' | xargs wc -l"
+# theta-specific aliases
+function vmip() {
+    # gcloud compute addresses describe $1-external-ip | awk 'FNR<=1 {print $2}' FS=': '
+    gcloud compute instances describe $1 | grep natIP | awk 'FNR<=1 {print $2}' FS=': '
+}
+alias startvm="gcloud compute instances start"
+alias stopvm="gcloud compute instances stop"
+alias resumevm="gcloud compute instances resume"
+alias suspendvm="gcloud compute instances suspend"
