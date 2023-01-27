@@ -26,6 +26,8 @@ set indentkeys-=:  " remove colon from indent keys
 set formatoptions+=Bj
 set wildmode=longest,list,full
 set wildmenu
+set splitright  " open vertical splits to the right
+set splitbelow  " open horizontal splits below
 " set wildignore=*.o,*~
 " set iskeyword-=_  " treat underscores as word separators
 
@@ -81,7 +83,7 @@ nnoremap <leader>O O#<space>
 
 
 " highlight column 80
-set colorcolumn=0
+set colorcolumn=80
 " set column 80 color
 " highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
@@ -122,15 +124,16 @@ call plug#begin('~/.vim/plugged')
     " Plug 'vim-pandoc/vim-rmarkdown'
     " Plug 'jalvesaq/Nvim-R'
     let R_assign = 0
-    Plug 'SirVer/ultisnips'
-        let g:UltiSnipsExpandTrigger='<tab>'
-        let g:UltiSnipsJumpForwardTrigger='<tab>'
-        let g:UltiSnipsJumpBackwardTrigger='<c-tab>'
-        let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
-        let g:UltiSnipsSnippetDirectories=['.vim/UltiSnips', 'UltiSnips']
+    " Plug 'SirVer/ultisnips'
+    "     let g:UltiSnipsExpandTrigger='<tab>'
+    "     let g:UltiSnipsJumpForwardTrigger='<tab>'
+    "     let g:UltiSnipsJumpBackwardTrigger='<c-tab>'
+    "     let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+    "     let g:UltiSnipsSnippetDirectories=['.vim/UltiSnips', 'UltiSnips']
     Plug 'dense-analysis/ale'
         let g:ale_sign_column_always = 1
         let g:ale_linters={'python': ['flake8']}
+        let g:ale_pattern_options={'.*\R$': {'ale_enabled': 0}}
     Plug 'jpalardy/vim-slime'
         let g:slime_target='tmux'
         let g:slime_default_config={'socket_name': 'default', 'target_pane': '{last}'}
@@ -158,7 +161,7 @@ set conceallevel=1
 hi Conceal ctermbg=none
 
 " filetype specific settings
-autocmd FileType Rmd setlocal nospell wrap linebreak colorcolumn=0 
+autocmd FileType Rmd setlocal nospell wrap linebreak colorcolumn=120
 
 " ale highlight settings
 highlight clear SignColumn
@@ -169,3 +172,4 @@ highlight ALEError ctermfg=red ctermbg=53
 filetype plugin indent on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType yaml set colorcolumn=0
