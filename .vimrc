@@ -157,7 +157,7 @@ set laststatus=2
 set noshowmode
 
 " configure vimtex
-set conceallevel=1
+set conceallevel=0
 hi Conceal ctermbg=none
 
 " filetype specific settings
