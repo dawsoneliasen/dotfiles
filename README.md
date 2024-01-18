@@ -15,9 +15,7 @@ rm -r tmpdotfiles
 ```
 dotfiles config --local status.showUntrackedFiles no
 ```
-* `brew install python3`
-* `brew install vim` (I prefer to use the brew installation of vim instead of the one that comes with MacOS)
-* [Install vim-plug](https://github.com/junegunn/vim-plug#installation)
+* Install pyenv: `brew install pyenv`
 * Launch vim and type :PlugInstall
 
 Finall, in order for `vim-ale` to work, you need to make sure the `flake8` Python package is installed somewhere on `$PATH`.
