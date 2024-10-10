@@ -18,7 +18,7 @@ dotfiles config --local status.showUntrackedFiles no
 * Install pyenv: `brew install pyenv`
 * Launch vim and type :PlugInstall
 
-Finall, in order for `vim-ale` to work, you need to make sure the `flake8` Python package is installed somewhere on `$PATH`.
+Finally, in order for `vim-ale` to work, you need to make sure the `flake8` Python package is installed somewhere on `$PATH`. Simply running `pip install flake8` should do the job.
 
 
 ---
