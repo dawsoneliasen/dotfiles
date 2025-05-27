@@ -82,11 +82,6 @@ nnoremap <leader>o o#<space>
 nnoremap <leader>O O#<space>
 
 
-" highlight column 80
-set colorcolumn=80
-" set column 80 color
-" highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-
 function! SynStack()
   if !exists("*synstack")
     return
@@ -172,4 +167,5 @@ highlight ALEError ctermfg=red ctermbg=53
 filetype plugin indent on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python set colorcolumn=120
 autocmd FileType yaml set colorcolumn=0
