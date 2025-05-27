@@ -15,7 +15,7 @@ set number  " add line numbers
 set relativenumber  " show line numbers relative to current line
 set visualbell  " don't make noise
 set nowrap  " don't wrap lines
-" set timeoutlen=1000 ttimeoutlen=0
+set ttimeoutlen=5
 set noesckeys  " disable escape keys; prevents delay when pressing esc
 set ignorecase  " ignore case when searching with / or ?
 set smartcase  " don't ignore case if a capital letter is present in the query
@@ -152,7 +152,7 @@ set laststatus=2
 set noshowmode
 
 " configure vimtex
-set conceallevel=1
+set conceallevel=0
 hi Conceal ctermbg=none
 
 " filetype specific settings
@@ -168,4 +168,4 @@ filetype plugin indent on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set colorcolumn=120
-autocmd FileType yaml set colorcolumn=0
+autocmd FileType R set colorcolumn=120 tabstop=2 softtabstop=2 shiftwidth=2
