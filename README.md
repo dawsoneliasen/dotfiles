@@ -16,6 +16,10 @@ rm -r tmpdotfiles
 dotfiles config --local status.showUntrackedFiles no
 ```
 * Install pyenv: `brew install pyenv`
+* Install `vim-plug`:
+  ```
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+  ```
 * Launch vim and type :PlugInstall
 
 Finally, in order for `vim-ale` to work, you need to make sure the `flake8` Python package is installed somewhere on `$PATH`. Simply running `pip install flake8` should do the job.
