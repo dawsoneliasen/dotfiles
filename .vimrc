@@ -167,5 +167,5 @@ highlight ALEError ctermfg=red ctermbg=53
 filetype plugin indent on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 autoindent
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType python set colorcolumn=120
-autocmd FileType R set colorcolumn=120 tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType python set colorcolumn=121
+autocmd FileType R set colorcolumn=121 tabstop=2 softtabstop=2 shiftwidth=2
